@@ -1,0 +1,41 @@
+{
+  "version": "eosio::abi/1.0",
+  "types": [{
+      "new_type_name": "account_name",
+      "type": "name"
+  }],
+  "structs": [{
+      "name": "transfer",
+      "base": "",
+      "fields": [
+        {"name":"from", "type":"account_name"},
+        {"name":"to", "type":"account_name"},
+        {"name":"quantity", "type":"asset"},
+        {"name":"memo", "type":"string"}
+      ]
+    }, {
+      "name": "game",
+      "base": "",
+      "fields": [
+        {"name":"gamer", "type":"account_name"},
+        {"name":"record", "type":"uint64"}
+      ]
+    }
+  ],
+  "actions": [{
+      "name": "transfer",
+      "type": "transfer",
+      "ricardian_contract": ""
+    }
+  ],
+  "tables": [{
+        "name": "games",
+        "type": "game",
+        "index_type": "i64",
+        "key_names" : ["gamer"],
+        "key_types" : ["account_name"]
+      }
+  ],
+  "ricardian_clauses": [],
+  "abi_extensions": []
+}
